@@ -1,8 +1,8 @@
 {
-  "name": "web-login",
+  "name": "web_tfg",
   "version": "1.0.0",
   "description": "",
-  "main": "Servidor.js",
+  "main": "ServidorPrincipal.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@supabase/supabase-js": "^2.105.4",
+    "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "express-session": "^1.19.0"
   }
