@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GrowIA – Optimiza tu Cultivo con Inteligencia Artificial</title>
+<link rel="stylesheet" href="EstilosPrincipales.css">
+<style>
+/* ── HERO (exclusivo de index) ───────────────── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(10,20,10,0.72) 0%, rgba(10,30,10,0.45) 60%, rgba(10,40,10,0.3) 100%),
+    url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1600&q=80') center/cover no-repeat;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 4rem;
+  max-width: 700px;
+  animation: fadeUp .8s ease both;
+}
+
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 900;
+  color: white;
+  line-height: 1.08;
+  margin-bottom: 1.2rem;
+}
+
+.hero p {
+  color: rgba(255,255,255,0.78);
+  font-size: 1.15rem;
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 2.2rem;
+  max-width: 520px;
+}
+
+.hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* ── Widget flotante ─────────────────────────── */
+.hero-widget {
+  position: absolute;
+  right: 5rem; top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 1.4rem 1.6rem;
+  width: 240px;
+  animation: fadeUp .9s ease .2s both;
+}
+
+.widget-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 1.1rem;
+}
+.widget-header span { color: white; font-size: .82rem; font-weight: 600; }
+
+.status-dot {
+  width: 8px; height: 8px;
+  background: #4ade80; border-radius: 50%;
+  box-shadow: 0 0 6px #4ade80;
+}
+
+.widget-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .6rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.widget-row:last-of-type { border-bottom: none; }
+
+.widget-label {
+  display: flex; align-items: center; gap: .5rem;
+  color: rgba(255,255,255,0.75); font-size: .82rem;
+}
+.widget-value { color: white; font-weight: 700; font-size: .95rem; }
+
+.widget-chart {
+  margin-top: .8rem;
+  height: 50px;
+  background: linear-gradient(180deg, rgba(90,153,85,0.35) 0%, rgba(90,153,85,0) 100%);
+  border-radius: 8px;
+  position: relative; overflow: hidden;
+}
+.widget-chart::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 50'%3E%3Cpath d='M0,35 C30,30 50,20 80,25 C110,30 130,15 160,18 C190,21 210,10 240,8' stroke='%234ade80' stroke-width='2' fill='none'/%3E%3C/svg%3E") no-repeat center/100% 100%;
+}
+
+/* ── Responsive hero ─────────────────────────── */
+@media (max-width: 1024px) {
+  .hero-content { padding: 0 2rem; }
+  .hero-widget { right: 2rem; width: 200px; }
+}
+@media (max-width: 640px) {
+  .hero h1 { font-size: 2.5rem; }
+  .hero-widget { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV  -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <!-- Logo de tu web -->
+    <img src="Logo-GrowIA.png" alt="Logo de mi sitio" width="150" height="auto">
+  </a>
+  <button class="nav-burger" aria-label="Abrir menú" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="Caracteristicas.html">Características</a></li>
+    <li><a href="Funcionamiento.html">Funcionamiento</a></li>
+    <!-- <li><a href="DasboardMiguel.html">Dashboard</a></li> !-->
+    <li><a href="Precios.html">Precios</a></li>
+    <li><a href="Precios.html" class="nav-cta">Comprar Ahora</a></li>
+    <li><a href="Web-Login/Formulario.html" class="nav-cta">Iniciar Sesión</a></li>
+  </ul>
+</nav>
+<script>
+  const burger = document.querySelector('.nav-burger');
+  const navLinks = document.querySelector('.nav-links');
+  burger.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', false);
+  }));
+</script>
+
+<!-- ── HERO ────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <div class="hero-content">
+    <h1>Optimiza tu Cultivo con Inteligencia Artificial</h1>
+    <p>Cada dato cuenta, cada cultivo se optimiza con GrowAI.</p>
+    <div class="hero-buttons">
+      <a href="Precios.html" class="btn-primary">Comprar Ahora → </a>
+      <a href="Funcionamiento.html" class="btn-outline">Ver Funcionalidad → </a>
+    </div>
+  </div>
+
+<!-- 
+  <div class="hero-widget">
+    <div class="widget-header">
+      <span>Datos en Tiempo Real</span>
+      <div class="status-dot"></div>
+    </div>
+    <div class="widget-row">
+      <div class="widget-label">💧 Humedad</div>
+      <div class="widget-value">61%</div>
+    </div>
+    <div class="widget-row">
+      <div class="widget-label">🌡️ Temperatura</div>
+      <div class="widget-value">22°C</div>
+    </div>
+    <div class="widget-chart"></div>
+  </div> -->
+</section> 
+
+<!--  FOOTER  -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>Mantente<br>Actualizado</h3>
+      <p>Recibe las últimas novedades sobre tecnología agrícola para el beneficio de tu cultivo.</p>
+      <div class="footer-email-form">
+        <input type="email" placeholder="tu@email.com">
+        <button class="footer-subscribe">Suscribirse →</button>
+      </div>
+    </div> 
+    <div class="footer-col">
+      <h4>Navegación</h4>
+      <ul>
+        <li><a href="Caracteristicas.html">Características</a></li>
+        <li><a href="Funcionamiento.html">Funcionamiento</a></li>
+        <!-- <li><a href="Dashboard.html">Dashboard</a></li> !-->
+        <li><a href="Precios.html">Precios</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <div class="footer-contact-item"><span>📞</span> +34 950 34 72 12</div>
+      <div class="footer-contact-item"><span>✉️</span> info@growai.com</div>
+    </div>
+    <div class="footer-col">
+      <h4>Oficina Central</h4>
+      <div class="footer-contact-item">
+        <span>📍</span>
+        <span>Calle Innovación 34<br>04001 Almeria, España</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-socials">
+      <a class="social-btn" href="#">in</a>
+      <a class="social-btn" href="#">📷</a>
+    <!-- <a class="social-btn" href="#">▶</a> -->
+  </div>
+    <div>© 2025 GrowAI. Todos los derechos reservados.</div>
+    <div class="footer-legal">
+      <a href="#">Privacidad</a>
+      <a href="#">Términos</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

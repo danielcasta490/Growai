@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Funcionamiento – AgriSensor AI</title>
+<link rel="stylesheet" href="EstilosPrincipales.css">
+<style>
+/* ── Page header  */
+.page-header {
+  padding: 9rem 4rem 4rem;
+  background: var(--green-dark);
+  text-align: center;
+}
+.page-header h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  color: white;
+  margin-bottom: .7rem;
+}
+.page-header p { color: rgba(255,255,255,0.7); font-size: 1.05rem; }
+
+/* ── Steps  */
+#Funcionamiento { background: white; }
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin-top: 4rem;
+  position: relative;
+}
+
+.steps-grid::before {
+  content: '';
+  position: absolute;
+  top: 50px; left: 16%; right: 16%;
+  height: 1px;
+  border-top: 2px dashed var(--border);
+}
+
+.step { text-align: center; }
+
+.step-circle {
+  width: 100px; height: 100px;
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 1.5rem;
+  background: white;
+  position: relative; z-index: 1;
+  transition: border-color .2s, background .2s;
+}
+.step:hover .step-circle {
+  border-color: var(--green);
+  background: var(--green-pale);
+}
+
+.step-title {
+  font-weight: 700; font-size: 1.05rem;
+  margin-bottom: .5rem; color: var(--text);
+}
+.step-desc { font-size: .88rem; color: var(--muted); line-height: 1.6; }
+
+/* ── Responsive  */
+@media (max-width: 1024px) {
+  .page-header { padding: 8rem 2rem 3rem; }
+  .steps-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .steps-grid::before { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV  -->
+<nav class="nav-dark">
+  <a href="index.html" class="nav-logo">
+  <img src="Logo-GrowIA.png" alt="Logo de mi sitio" width="150" height="auto">
+  </a>
+  <button class="nav-burger" aria-label="Abrir menú" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="Caracteristicas.html">Características</a></li>
+    <li><a href="Funcionamiento.html">Funcionamiento</a></li>
+   <!-- <li><a href="DasboardMiguel.html">Dashboard</a></li> -->
+    <li><a href="Precios.html">Precios</a></li>
+    <li><a href="Precios.html" class="nav-cta">Comprar Ahora</a></li>
+  </ul>
+</nav>
+<script>
+  const burger = document.querySelector('.nav-burger');
+  const navLinks = document.querySelector('.nav-links');
+  burger.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', false);
+  }));
+</script>
+
+<!-- ── PAGE HEADER  -->
+<div class="page-header">
+  <h1>Funcionamiento</h1>
+  <p>Tres pasos simples para transformar tu agricultura</p>
+</div>
+
+<!-- Pruebas de diseño -->
+<!--  STEPS   -->
+<section id="Funcionamiento">
+  <div class="steps-grid">
+    <div class="step reveal">
+      <div class="step-circle">🔧</div>
+      <div class="step-title">Instala el Sensor</div>
+      <div class="step-desc">Coloca el sensor en tu terreno siguiendo las instrucciones simples. Instalación en menos de 5 minutos sin herramientas especiales.</div>
+    </div>
+    <div class="step reveal" style="transition-delay:.15s">
+      <div class="step-circle">🗄️</div>
+      <div class="step-title">Recoge Datos Automáticamente</div>
+      <div class="step-desc">El sensor comienza a monitorizar automáticamente humedad, temperatura y nutrientes. Transmisión continua a la nube.</div>
+    </div>
+    <div class="step reveal" style="transition-delay:.3s">
+      <div class="step-circle">📱</div>
+      <div class="step-title">Visualiza Recomendaciones</div>
+      <div class="step-desc">Accede a tu dashboard personalizado con análisis inteligentes y recomendaciones de riego optimizadas por IA.</div>
+    </div>
+</section>  
+
+<!-- ── FOOTER  -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>Mantente<br>Actualizado</h3>
+      <p>Recibe las últimas novedades sobre tecnología agrícola para el beneficio de tu cultivo.</p>
+      <div class="footer-email-form">
+        <input type="email" placeholder="tu@email.com">
+        <button class="footer-subscribe">Suscribirse →</button>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navegación</h4>
+      <ul>
+        <li><a href="Caracteristicas.html">Características</a></li>
+        <li><a href="Funcionamiento.html">Funcionamiento</a></li>
+        <!-- <li><a href="Dashboard.html">Dashboard</a></li> !-->
+        <li><a href="Precios.html">Precios</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <div class="footer-contact-item"><span>📞</span> +34 950 34 72 12</div>
+      <div class="footer-contact-item"><span>✉️</span> info@growai.com</div>
+    </div>
+    <div class="footer-col">
+      <h4>Oficina Central</h4>
+      <div class="footer-contact-item">
+        <span>📍</span>
+        <span>Calle Innovación 34<br>04001 Almeria, España</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-socials">
+      <a class="social-btn" href="#">in</a>
+      <a class="social-btn" href="#">📷</a>
+      <a class="social-btn" href="#">▶</a>
+    </div>
+    <div>© 2025 GrowAI. Todos los derechos reservados.</div>
+    <div class="footer-legal">
+      <a href="#">Privacidad</a>
+      <a href="#">Términos</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

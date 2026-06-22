@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Precios – AgriSensor AI</title>
+<link rel="stylesheet" href="EstilosPrincipales.css">
+<style>
+/* ── Page header  */
+.page-header {
+  padding: 9rem 4rem 4rem;
+  background: var(--green-dark);
+  text-align: center;
+}
+.page-header h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  color: white;
+  margin-bottom: .7rem;
+}
+.page-header p { color: rgba(255,255,255,0.7); font-size: 1.05rem; }
+
+/* ── Pricing section  */
+#precios { background: white; }
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+  align-items: start;
+}
+
+.pricing-card {
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 2rem;
+  background: white;
+  transition: transform .25s, box-shadow .25s;
+}
+.pricing-card:hover { transform: translateY(-4px); }
+
+.pricing-card.popular {
+  border-color: var(--green);
+  background: var(--green-dark);
+  color: white;
+  transform: scale(1.03);
+  box-shadow: 0 20px 60px rgba(42,77,40,0.3);
+}
+.pricing-card.popular:hover { transform: scale(1.03) translateY(-4px); }
+
+.popular-badge {
+  display: inline-block;
+  background: var(--green-light);
+  color: white;
+  font-size: .7rem; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  padding: .25rem .75rem; border-radius: 50px;
+  margin-bottom: 1rem;
+}
+
+.plan-name {
+  font-weight: 700; font-size: 1rem;
+  margin-bottom: .5rem; color: var(--text);
+}
+.pricing-card.popular .plan-name { color: white; }
+
+.plan-price {
+  font-family: 'Fraunces', serif;
+  font-size: 3rem; font-weight: 700;
+  color: var(--text); line-height: 1;
+}
+.pricing-card.popular .plan-price { color: white; }
+.plan-price sup { font-size: 1rem; vertical-align: super; }
+.plan-price sub { font-size: .9rem; font-weight: 400; }
+
+.plan-desc { font-size: .82rem; color: var(--muted); margin: .4rem 0 1.5rem; }
+.pricing-card.popular .plan-desc { color: rgba(255,255,255,0.65); }
+
+.plan-features { list-style: none; margin-bottom: 2rem; }
+.plan-features li {
+  display: flex; align-items: center; gap: .6rem;
+  font-size: .85rem; padding: .35rem 0; color: var(--text);
+}
+.pricing-card.popular .plan-features li { color: rgba(255,255,255,0.85); }
+.plan-features li.disabled { opacity: .4; }
+
+.pricing-card.popular .check-icon { background: rgba(255,255,255,0.2); }
+
+.btn-plan {
+  display: block; width: 100%; text-align: center;
+  padding: .8rem; border-radius: 50px;
+  font-weight: 600; font-size: .9rem;
+  text-decoration: none; cursor: pointer;
+  transition: .2s;
+}
+.btn-plan-outline {
+  border: 1.5px solid var(--border);
+  background: transparent; color: var(--text);
+}
+.btn-plan-outline:hover { border-color: var(--green); color: var(--green); }
+.btn-plan-filled {
+  background: white; color: var(--green-dark); border: none;
+}
+.btn-plan-filled:hover { background: var(--green-pale); }
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 1024px) {
+  .page-header { padding: 8rem 2rem 3rem; }
+  .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .pricing-grid { grid-template-columns: 1fr; }
+  .pricing-card.popular { transform: none; }
+  .pricing-card.popular:hover { transform: translateY(-4px); }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ─────────────────────────────────── -->
+<nav class="nav-dark">
+  <a href="index.html" class="nav-logo">
+  <img src="Logo-GrowIA.png" alt="Logo de mi sitio" width="150" height="auto">
+  </a>
+  <ul class="nav-links">
+    <li><a href="Caracteristicas.html">Características</a></li>
+    <li><a href="Funcionamiento.html">Funcionamiento</a></li>
+   <!--  <li><a href="DasboardMiguel.html">Dashboard</a></li> -->
+    <li><a href="Precios.html">Precios</a></li>
+    <li><a href="Precios.html" class="nav-cta">Comprar Ahora</a></li>
+  </ul>
+</nav>
+
+<!-- ── PAGE HEADER ─────────────────────────── -->
+<div class="page-header">
+  <h1>Elige tu Plan Ideal</h1>
+  <p>Sin compromisos, cancela cuando quieras</p> 
+</div>
+
+<!-- ── PRICING ─────────────────────────────── -->
+<section id="precios">
+  <div class="pricing-grid">
+
+    <!-- Plan Básico -->
+    <div class="pricing-card reveal">
+      <div class="plan-name">Plan Básico</div>
+      <div class="plan-price"><sup>€</sup>19<sub>/mes</sub></div>
+      <div class="plan-desc">Ideal para pequeños agricultores</div>
+      <ul class="plan-features">
+        <li><div class="check-icon">✓</div> 1 sensor incluido</li>
+        <li><div class="check-icon">✓</div> Monitorización básica</li>
+        <li><div class="check-icon">✓</div> Dashboard web</li>
+        <li><div class="check-icon">✓</div> Soporte por email</li>
+        <li><div class="check-icon">✓</div> Garantia hardware</li>
+        <li class="disabled"><div class="check-icon">✓</div> Formación inicial</li>
+        <li class="disabled"><div class="check-icon">✓</div> Análisis predictivo IA</li>
+        <li class="disabled"><div class="check-icon">✓</div> App móvil premium</li>
+        <li class="disabled"><div class="check-icon">✓</div> Soporte prioritario</li>
+      </ul>
+      <a href="#" class="btn-plan btn-plan-outline">Comenzar Ahora</a>
+    </div>
+
+    <!-- Plan Profesional -->
+    <div class="pricing-card popular reveal" style="transition-delay:.1s">
+      <div class="popular-badge">Más Popular</div>
+      <div class="plan-name">Plan Profesional</div>
+      <div class="plan-price"><sup>€</sup>39<sub>/mes</sub></div>
+      <div class="plan-desc">Para agricultores profesionales</div>
+      <ul class="plan-features">
+        <li><div class="check-icon">✓</div> 3 sensores incluidos</li>
+        <li><div class="check-icon">✓</div> Monitorización avanzada</li>
+        <li><div class="check-icon">✓</div> Dashboard web</li>
+        <li><div class="check-icon">✓</div> Alertas multicanal</li>
+        <li><div class="check-icon">✓</div> Análisis predictivo IA</li>
+        <li><div class="check-icon">✓</div> Recomendaciones personalizadas</li>
+        <li><div class="check-icon">✓</div> Soporte prioritario</li>
+        <li><div class="check-icon">✓</div> Informes mensuales</li>
+      </ul>
+      <a href="#" class="btn-plan btn-plan-filled">Comenzar Ahora</a>
+    </div>
+
+    <!-- Plan Empresarial -->
+    <div class="pricing-card reveal" style="transition-delay:.2s">
+      <div class="plan-name">Plan Empresarial</div>
+      <div class="plan-price"><sup>€</sup>65<sub>/mes</sub></div>
+      <div class="plan-desc">Para grandes explotaciones</div>
+      <ul class="plan-features">
+        <li><div class="check-icon">✓</div> 10+ sensores incluidos</li>
+        <li><div class="check-icon">✓</div> Monitorización empresarial</li>
+        <li><div class="check-icon">✓</div> Dashboard personalizado</li>
+        <li><div class="check-icon">✓</div> API completa</li>
+        <li><div class="check-icon">✓</div> IA avanzada y predicciones</li>
+        <li><div class="check-icon">✓</div> Integración con sistemas</li>
+        <li><div class="check-icon">✓</div> Soporte 24/7 dedicado</li>
+        <li><div class="check-icon">✓</div> Consultoría agronómica</li>
+      </ul>
+      <a href="#" class="btn-plan btn-plan-outline">Comenzar Ahora</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── FOOTER  -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>Mantente<br>Actualizado</h3>
+      <p>Recibe las últimas novedades sobre tecnología agrícola para el beneficio de tu cultivo.</p>
+      <div class="footer-email-form">
+        <input type="email" placeholder="tu@email.com">
+        <button class="footer-subscribe">Suscribirse →</button>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navegación</h4>
+      <ul>
+        <li><a href="Caracteristicas.html">Características</a></li>
+        <li><a href="Funcionamiento.html">Funcionamiento</a></li>
+        <!-- <li><a href="Dashboard.html">Dashboard</a></li> !-->
+        <li><a href="Precios.html">Precios</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <div class="footer-contact-item"><span>📞</span> +34 950 34 72 12</div>
+      <div class="footer-contact-item"><span>✉️</span> info@growai.com</div>
+    </div>
+    <div class="footer-col">
+      <h4>Oficina Central</h4>
+      <div class="footer-contact-item">
+        <span>📍</span>
+        <span>Calle Innovación 34<br>04001 Almeria, España</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-socials">
+      <a class="social-btn" href="#">in</a>
+      <a class="social-btn" href="#">📷</a>
+      <a class="social-btn" href="#">▶</a>
+    </div>
+    <div>© 2025 GrowAI. Todos los derechos reservados.</div>
+    <div class="footer-legal">
+      <a href="#">Privacidad</a>
+      <a href="#">Términos</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
